@@ -9,6 +9,7 @@ struct Student
     char programme[255];
     float mark;
 };
+/*open IO function to read from txt file*/
 struct Student *openfile(const char *file_path, int *out_count){
     FILE *fptr = fopen(file_path,"r");
     struct Student *student_records = NULL;
