@@ -8,6 +8,9 @@
 #include "func/general/input_sanitization.h"
 #include "func/database/help_func.h"
 #include "func/database/exit_func.h"
+#include "CMS/read/query.c"
+#include "CMS/read/showall.c"
+
 
 #define MAX_INPUT 10
 
