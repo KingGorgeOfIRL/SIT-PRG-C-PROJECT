@@ -56,21 +56,3 @@ void loadStudents(){
 
 
 }
-
-
-//For testing purposes
-// int main() {
-
-//     // Use loadStudents() to grab id, name, programme and marks
-//     loadStudents();
-
-//     for(int i = 0; i < studentCount; i++){
-//         printf("ID: %d\n", students[i].id);
-//         printf("Name: %s\n", students[i].name);
-//         printf("Programme: %s\n", students[i].programme);
-//         printf("Mark: %.1f\n\n", students[i].mark);
-//     }
-
-//     return 0;
-
-// }
