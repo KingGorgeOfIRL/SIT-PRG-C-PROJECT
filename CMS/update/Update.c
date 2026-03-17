@@ -9,6 +9,7 @@ struct Student
     char programme[255];
     float mark;
 };
+
 struct Student *openfile(const char *file_path, int *out_count){
     FILE *fptr = fopen(file_path,"r");
     struct Student *student_records = NULL;
@@ -68,22 +69,21 @@ struct Student *openfile(const char *file_path, int *out_count){
     return student_records;
 }
 
-
-int main(){
-    int count = 0;
-    struct Student *records = openfile("../../DB/Sample_CMS.txt", &count);
+// int main(){
+//     int count = 0;
+//     struct Student *records = openfile("../../DB/Sample_CMS.txt", &count);
     
-    if (records != NULL) {
-        for (int i = 0; i < count; i++) {
-            printf("%d, %s, %s, %.2f\n",
-                records[i].id,
-                records[i].name,
-                records[i].programme,
-                records[i].mark);
-        }
-    }
+//     if (records != NULL) {
+//         for (int i = 0; i < count; i++) {
+//             printf("%d, %s, %s, %.2f\n",
+//                 records[i].id,
+//                 records[i].name,
+//                 records[i].programme,
+//                 records[i].mark);
+//         }
+//     }
 
-    free(records);
+//     free(records);
 
-    return 0;
-}
+//     return 0;
+// }
