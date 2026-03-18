@@ -4,7 +4,7 @@
 // Forward declare Command struct so other files can include this
 typedef struct {
     const char *name;
-    void (*func)();
+    void (*func)(char *args);
     const char *description;
 } Command;
 
