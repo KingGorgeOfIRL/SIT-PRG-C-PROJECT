@@ -8,33 +8,36 @@
 #include "func/general/input_sanitization.h"
 #include "func/database/help_func.h"
 #include "func/database/exit_func.h"
-#include "CMS/read/query.c"
-#include "CMS/read/showall.c"
 
-
-#define MAX_INPUT 10
+#define MAX_INPUT 10000
 
 int main() {
 
     char input[MAX_INPUT];
+    char args[128];
     char timestamp[32]; // size = 21 (incl. null term.)
 
-    // infinite
     while (1) {
 
         get_timestamp(timestamp, sizeof(timestamp));
         printf("\n[%s] >> ", timestamp);
 
-        if (!sanitize_input(input, sizeof(input))) {
+        if (!sanitize_input(input, sizeof(input), 1)) {
             continue;
-        }
+        };
+
+        char *cmd = strtok(input, " ");
+        char *args = strtok(NULL, "");
+
+        if (!cmd) {continue;}
+        if (!args) {args = "";}
 
         // lookup commands
         int found = 0;
         // loop through all command to see if there's any matches
         for (int i = 0; i < num_commands; i++) {
-            if (strcmp(input, commands[i].name) == 0) {
-                commands[i].func();
+            if (strcmp(cmd, commands[i].name) == 0) {
+                commands[i].func(args);
                 found = 1;
                 break;
             }

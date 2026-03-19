@@ -1,16 +1,14 @@
 #include "commands.h"
 #include "../func/database/help_func.h"
 #include "../func/database/exit_func.h"
-#include "../CMS/read/query.c"
-#include "../CMS/read/showall.c"
+#include "../func/database/insert_func.h"
 
-// Define the commands table
+// command table
 Command commands[] = {
     {"help", cmd_help, "Display help menu"},
     {"exit", cmd_exit, "Exit program"},
-    {"showall", showAll, "Display all records"},
-    {"query",   query,   "Search for a record"}
+    {"insert", cmd_insert, "Insert new entry"}
 };
 
-// Define the number of commands
+// number of commands
 int num_commands = sizeof(commands) / sizeof(commands[0]);
