@@ -1,18 +1,11 @@
 #ifndef READ_H
 #define READ_H
 
-struct Student 
-{
-    int id;
-    char name[255];
-    char programme[255];
-    float mark;
-};
-
-extern struct Student students[100];
-extern int studentCount;
+#include "../include/commands.h"
 
 int showAll();
+void cmd_showall();
 struct Student* query(int searchID);
+void cmd_query();
 
 #endif

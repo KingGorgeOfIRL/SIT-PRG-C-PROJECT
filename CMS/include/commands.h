@@ -16,7 +16,9 @@ extern int studentCount;
 
 // enter the functions to be used by main.c here
 void loadStudents();
-void showAll();
-void query();
+int showAll();   
+void cmd_showall(); 
+struct Student* query(int searchID);
+void cmd_query();
 
 #endif
