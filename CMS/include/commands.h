@@ -16,7 +16,8 @@ extern int studentCount;
 
 // enter the functions to be used by main.c here
 void loadStudents();
-void showAll();
+void saveStudents();
+int showAll();
 void query();
 
 #endif

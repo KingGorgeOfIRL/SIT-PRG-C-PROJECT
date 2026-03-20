@@ -29,26 +29,30 @@ void loadStudents(){
     // prints to the terminal and notifies the user that the database file has opened
     printf("CMS: The database file “Sample_CMS.txt” is successfully opened.\n");
 
-    // skips the first 2 sentences
-    fgets(buffer, sizeof(buffer), pFile);
-    fgets(buffer, sizeof(buffer), pFile);
-
     //reads a line from the file, copies it into the buffer, and then returns the text stored in buffer
     //Only if pFile is NOT empty
     while(fgets(buffer, sizeof(buffer), pFile) != NULL){
 
+        int id;
+        char name[255];
+        char programme[255];
+        float mark;
+
         //sscanf is used since we are reading from a string (buffer) instead of a variable
-        // %[^,] reads a string until the next comma, first one reads the name, second one reads the programme
-        // %[^,] is used as the name and programme data have spaces
-        sscanf(buffer,"%d,%[^,],%[^,],%f",
+        // %254[^,] reads a string (of 254 characters) until the next comma, first one reads the name, second one reads the programme
+        // %254[^,] is used as the name and programme data have spaces
+        int result = sscanf(buffer, "%d,%254[^,],%254[^,],%f", &id, name, programme, &mark);
 
-            &students[studentCount].id,
-            students[studentCount].name,
-            students[studentCount].programme,
-            &students[studentCount].mark);
+        //if result != 4 the it just ignores the line of data and goes to the next one
+        if (result == 4) {
+            students[studentCount].id = id;
+            strcpy(students[studentCount].name, name);
+            strcpy(students[studentCount].programme, programme);
+            students[studentCount].mark = mark;
 
-        //keeps track of how many students are there
-        studentCount++;
+            // keeps track of how many students there are
+            studentCount++;
+        } 
 
     }
 
@@ -56,3 +60,22 @@ void loadStudents(){
 
 
 }
+
+//Testing purposes
+
+// int main() {
+//     printf("=== Testing open.c ===\n\n");
+
+//     // load data from file
+//     loadStudents();
+
+//     // display loaded data
+//     int count = showAll();
+
+//     printf("Total records loaded: %d\n", count);
+
+//     return 0;
+// }
+
+//command ran: gcc ./CMS/IO/open.c ./CMS/IO/save.c ./CMS/read/showall.c -o testing
+
