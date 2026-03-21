@@ -2,8 +2,8 @@
 #include <string.h>
 #include "read.h"
 
-// displays every record currently loaded in the database.
-// returns the number of records, or 0 if none.
+//displays every record currently loaded in the database.
+//returns the number of records, or 0 if none.
 int showAll() {
     if (studentCount == 0) {
         printf("No records found.\n");
@@ -27,7 +27,7 @@ int showAll() {
     return studentCount;
 }
 
-// wrapper for the commands table (no arguments, no return value)
+//wrapper for the commands table (no arguments, no return value)
 void cmd_showall() {
     showAll();
 }
