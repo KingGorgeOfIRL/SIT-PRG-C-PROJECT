@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 
-int sanitize_input(char *buffer, size_t size) {
+int sanitize_input(char *buffer, size_t size, int to_lowercase) {
 
     // read input
     if (fgets(buffer, size, stdin) == NULL) {
@@ -41,9 +41,11 @@ int sanitize_input(char *buffer, size_t size) {
         memmove(buffer, start, strlen(start) + 1); // +1 for null terminator
     }
 
-    // lowercase everything
-    for (size_t i = 0; buffer[i]; i++) {
-        buffer[i] = (char)tolower((unsigned char)buffer[i]);
+    // lowercase only if needed
+    if (to_lowercase) {
+        for (size_t i = 0; buffer[i]; i++) {
+            buffer[i] = (char)tolower((unsigned char)buffer[i]);
+        }
     }
 
     return 1; // success

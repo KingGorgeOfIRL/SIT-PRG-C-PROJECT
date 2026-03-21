@@ -5,6 +5,6 @@
 
 // Reads input from stdin, trims newline, lowercases, and ensures max length.
 // Returns 1 on success, 0 on failure (input too long or fgets error).
-int sanitize_input(char *buffer, size_t size);
+int sanitize_input(char *buffer, size_t size, int to_lowercase);
 
 #endif // SANITIZE_INPUT_H
