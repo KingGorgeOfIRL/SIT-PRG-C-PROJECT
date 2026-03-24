@@ -139,7 +139,8 @@ int update(Record *student_record, int size_of_array, int position, Student *new
 
 }
 
-int delete(int position, Record *student_record,int size_of_array){
+// returns student id if there is an error, assumes that student is in record
+int remove(int position, Record *student_record,int size_of_array){
     if (position <= size_of_array){
         free(student_record[position].node);
         for (int i = position; i < size_of_array; i++){
