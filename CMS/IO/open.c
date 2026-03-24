@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
-//This allows "commands.h" header file to find "loadStudents()" function
-#include "../include/commands.h"
-
+//This allows "commands.h" header file to find the data structure for students
+#include "../../assets/commands.h"
+#include "io.h"
 
 struct Student students[100];
 int studentCount = 0;
 
 // a void function doesn't return anything, this function opens the file and stores
 // the data from the file in a buffer
-void loadStudents(){
+void cmd_loadStudents(char *args){
 
     // opens the file and stores it in a pointer named pFile
-    FILE *pFile = fopen("DB/Sample_CMS.txt", "r");
+    FILE *pFile = fopen("StudentRecords/P1-7_CMS.txt", "r");
 
     //create a buffer to temporarily store data in memory
     char buffer[1024] = {0};
@@ -27,7 +27,7 @@ void loadStudents(){
     }
 
     // prints to the terminal and notifies the user that the database file has opened
-    printf("CMS: The database file “Sample_CMS.txt” is successfully opened.\n");
+    printf("CMS: The database file “P1-7_CMS.txt” is successfully opened.\n");
 
     //reads a line from the file, copies it into the buffer, and then returns the text stored in buffer
     //Only if pFile is NOT empty
@@ -66,16 +66,21 @@ void loadStudents(){
 // int main() {
 //     printf("=== Testing open.c ===\n\n");
 
-//     // load data from file
-//     loadStudents();
+//     // Step 1: Load data from file
+//     cmd_loadStudents(NULL);
 
-//     // display loaded data
-//     int count = showAll();
-
-//     printf("Total records loaded: %d\n", count);
+//     // Step 2: Display all loaded students
+//     printf("\nLoaded %d student(s):\n", studentCount);
+//     for (int i = 0; i < studentCount; i++) {
+//         printf("ID: %d\n", students[i].id);
+//         printf("Name: %s\n", students[i].name);
+//         printf("Programme: %s\n", students[i].programme);
+//         printf("Mark: %.2f\n", students[i].mark);
+//         printf("-----------------------\n");
+//     }
 
 //     return 0;
 // }
 
-//command ran: gcc ./CMS/IO/open.c ./CMS/IO/save.c ./CMS/read/showall.c -o testing
+//command ran: gcc ./CMS/IO/open.c -o test_open
 

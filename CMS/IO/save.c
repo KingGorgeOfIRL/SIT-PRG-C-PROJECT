@@ -1,14 +1,18 @@
 #include <stdio.h>
-#include "../include/commands.h"
+#include <string.h>
+
+
+#include "../../assets/commands.h"
+#include "io.h"
 
 // use the same global variables defined in open.c
 extern struct Student students[100];
 extern int studentCount;
 
-void saveStudents() {
+void cmd_saveStudents(char *args) {
 
     //Now it is using "w" to make changes instead of just reading the file with "r"
-    FILE *pFile = fopen("DB/Sample_CMS.txt", "w");
+    FILE *pFile = fopen("StudentRecords/P1-7_CMS.txt", "w");
 
     if (pFile == NULL) {
         printf("Error: Could not save to file.\n");
@@ -36,37 +40,29 @@ void saveStudents() {
     fflush(pFile);
     fclose(pFile);
 
-    printf("CMS: Database successfully saved to file.\n");
+    printf("CMS: The database file 'P1-7_CMS.txt' is successfully saved.\n");
 }
 
 
-//Testing purposes
-
+//testing
 // int main() {
 //     printf("=== Testing save.c ===\n\n");
 
-//     // Step 1: Load existing data from file
-//     loadStudents();
+//     // Create some dummy data
+//     studentCount = 2;
 
-//     printf("Loaded %d records from file.\n\n", studentCount);
+//     students[0].id = 1;
+//     strcpy(students[0].name, "Alice Tan");
+//     strcpy(students[0].programme, "Computer Science");
+//     students[0].mark = 85.5;
 
-//     // Step 2 (optional): Modify a record for testing
-//     if (studentCount > 0) {
-//         printf("Modifying first record for testing...\n");
-//         students[0].mark += 5.0;  // add 5 points
-//     }
+//     students[1].id = 2;
+//     strcpy(students[1].name, "Bob Lim");
+//     strcpy(students[1].programme, "Information Systems");
+//     students[1].mark = 78.0;
 
-//     // Step 3: Save data back to file
-//     saveStudents();
-
-//     // Step 4: Reload and show data to verify
-//     studentCount = 0;  // clear array
-//     loadStudents();
-//     printf("\nAfter saving and reloading:\n");
-//     showAll();
+//     // Call save function
+//     cmd_saveStudents(NULL);
 
 //     return 0;
 // }
-
-//command ran: gcc ./CMS/IO/open.c ./CMS/read/showall.c -o testing
-
