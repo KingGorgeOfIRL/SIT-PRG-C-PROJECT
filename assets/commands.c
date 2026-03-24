@@ -9,7 +9,9 @@ Command commands[] = {
     {"exit", cmd_exit, "Exit program"},
     {"insert", cmd_insert, "Insert new entry"},
     {"showall", cmd_showall, "Display all records"},
-    {"query",   cmd_query,   "Search for a record"}
+    {"query",   cmd_query,   "Search for a record"},
+    {"open",   cmd_loadStudents,   "Opens the database record"},
+    {"save",   cmd_saveStudents,   "Saves to the database record"}
 
 };
 
