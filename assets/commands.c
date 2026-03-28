@@ -1,19 +1,17 @@
-#include "commands.h"
-#include "../CMS/commands/db_func.h"
-#include "../CMS/insert/insert_func.h"
-#include "../CMS/read/read.h"
-#include "../CMS/IO/io.h"
+#include "assets.h"
+#include "../CMS/db/db_func.h"
 
 // command table
 Command commands[] = {
     {"help", cmd_help, "Display help menu"},
     {"exit", cmd_exit, "Exit program"},
+    {"load", cmd_loadStudents, "Load database file into memory"},
+    {"save", cmd_saveStudents, "Save changes to database file"},
     {"insert", cmd_insert, "Insert new entry"},
-    {"showall", cmd_showall, "Display all records"},
-    {"query",   cmd_query,   "Search for a record"},
-    {"open",   cmd_loadStudents,   "Opens the database file and read in all the records"},
-    {"save",   cmd_saveStudents,   "Saves all the current records into the database file"}
-
+    {"delete", cmd_delete, "Delete a record"},
+    {"update", cmd_update, "Update a record"},
+    {"show all", cmd_showall, "Display all records"},
+    {"query", cmd_query, "Search for a record"}
 };
 
 // number of commands

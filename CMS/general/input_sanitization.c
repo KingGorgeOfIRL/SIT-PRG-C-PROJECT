@@ -17,7 +17,7 @@ int sanitize_input(char *buffer, size_t size, int to_lowercase) {
     if (!newline) {
         int c;
         while ((c = getchar()) != '\n' && c != EOF); // flush extra chars
-        printf("[-] Input exceeded limit (%zu)\n", size - 2);
+        printf("[-] Input exceeded limit (%lu)\n", (unsigned long)(size - 2));
         return 0; // failed
     }
 
@@ -41,10 +41,12 @@ int sanitize_input(char *buffer, size_t size, int to_lowercase) {
         memmove(buffer, start, strlen(start) + 1); // +1 for null terminator
     }
 
-    // lowercase only if needed
+    // lowercase only the main command token if needed
     if (to_lowercase) {
-        for (size_t i = 0; buffer[i]; i++) {
-            buffer[i] = (char)tolower((unsigned char)buffer[i]);
+        char *p = buffer;
+        while (*p && !isspace((unsigned char)*p)) {
+            *p = (char)tolower((unsigned char)*p);
+            p++;
         }
     }
 
