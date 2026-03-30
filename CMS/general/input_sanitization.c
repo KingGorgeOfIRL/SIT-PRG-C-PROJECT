@@ -3,6 +3,8 @@
 #include <ctype.h>
 #include <string.h>
 
+#define STUDENT_ID_LEN 7
+
 int sanitize_input(char *buffer, size_t size, int to_lowercase) {
 
     // read input

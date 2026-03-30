@@ -32,8 +32,7 @@ void cmd_update(char *args) {
     printf("[+] Record updated successfully\n");
 }
 
-int update_record(Record *student_record, int count, int position,
-                  const char *name, const char *programme, float mark) {
+int update_record(Record *student_record, int count, int position, const char *name, const char *programme, float mark) {
     if (position < 0 || position >= count) {
         return -1; // invalid position
     }

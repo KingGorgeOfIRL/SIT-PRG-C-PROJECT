@@ -5,7 +5,7 @@
 Command commands[] = {
     {"help", cmd_help, "Display help menu"},
     {"exit", cmd_exit, "Exit program"},
-    {"load", cmd_loadStudents, "Load database file into memory"},
+    {"open", cmd_openStudents, "Load database file into memory"},
     {"save", cmd_saveStudents, "Save changes to database file"},
     {"insert", cmd_insert, "Insert new entry"},
     {"delete", cmd_delete, "Delete a record"},

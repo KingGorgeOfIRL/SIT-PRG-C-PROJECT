@@ -5,7 +5,7 @@
 #include "../../assets/assets.h"
 #include "../general/general_func.h"
 
-void cmd_loadStudents(char *args) {
+void cmd_openStudents(char *args) {
     (void)args;
     char err_msg[255];
     records = openfile("StudentRecords/P1-7_CMS.txt", err_msg, &recordCount);
@@ -66,48 +66,3 @@ Record *openfile(const char *file_path, char err_msg[255], int *count){
     fclose(fptr);
     return student_records;
 }
-
-// Record* loadStudentsFromFile(const char *file_path, char err_msg[255], int *count, int *capacity) {
-//     FILE *fptr = fopen(file_path, "r");
-//     if (!fptr) {
-//         strcpy(err_msg, "Failed to open file");
-//         return NULL;
-//     }
-
-//     *count = 0;
-//     *capacity = 1;
-//     Record *student_records = malloc(*capacity * sizeof(Record));
-//     if (!student_records) {
-//         strcpy(err_msg, "Initial memory allocation failure");
-//         fclose(fptr);
-//         return NULL;
-//     }
-
-//     char buffer[1024];
-//     while (fgets(buffer, sizeof(buffer), fptr) != NULL) {
-//         int id;
-//         char name[255], programme[255];
-//         float mark;
-
-//         // parse line safely
-//         if (sscanf(buffer, "%d,%254[^,],%254[^,],%f", &id, name, programme, &mark) == 4) {
-//             // find insertion position (keeps array sorted)
-//             int pos = binary_search(student_records, count, id);
-
-//             // insert record dynamically
-//             int res = insert(&student_records, count, *capacity, pos, id, name, programme, mark);
-//             if (res == -1) {
-//                 strcpy(err_msg, "Memory allocation failed during insert");
-//                 fclose(fptr);
-//                 free(student_records);
-//                 return NULL;
-//             } else {
-//                 *capacity = res;
-//             }
-//         }
-//         // ignore malformed lines
-//     }
-
-//     fclose(fptr);
-//     return student_records;
-// }

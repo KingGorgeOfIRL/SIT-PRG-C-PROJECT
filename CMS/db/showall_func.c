@@ -11,7 +11,7 @@ void cmd_showall(char *args) {
 // returns the number of records, or 0 if none.
 int showAll() {
     if (recordCount == 0) {
-        printf("No records found. (Have you [load] the database?)\n");
+        printf("[x] No records found. (Have you [open] the database?)\n");
         return 0;
     }
 

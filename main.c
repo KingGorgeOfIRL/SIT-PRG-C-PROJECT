@@ -11,6 +11,28 @@
 
 int main() {
 
+    printf("\n\nDeclaration\n\n"
+           "Students are not allowed to copy assessment solutions from another person or other places, including\n"
+           "AI platforms or tools. It is the students' responsibility to guarantee that their solutions are their own\n"
+           "work. Meanwhile, the students must also ensure that their work is not accessible by others. Where such\n"
+           "plagiarism is detected, both of the assessments involved will receive ZERO mark.\n"
+           "We hereby declare that:\n"
+           "\t- We fully understand and agree to the abovementioned policy.\n"
+           "\t- We did not copy any materials from others or from other places, e.g., AI platforms or tools.\n"
+           "\t- We did not share our materials with others or upload to any other places for public access.\n"
+           "\t- We agree that we will not disclose any information or material of the team project to others or\n"
+           "\tupload to any other places for public access.\n"
+           "\t- We agree that our project will receive Zero mark if any misalignment with the above mentioned\n"
+           "\tpolicies is detected.\n\n"
+           "Declared by: Group Name (please insert your group name)\n"
+           "Team members:\n"
+           "\t1. Asher Lee Bing Xuan\n"
+           "\t2. Alden Chia Yu Xiang\n"
+           "\t3. Lennon Poh Chin Hng\n"
+           "\t4. Ray Tan JunTao\n"
+           "Date: (please insert the date when you submit your milestone report).\n\n"
+    );
+
     char input[MAX_INPUT];
     char timestamp[32]; // size = 21 (incl. null term.)
 
