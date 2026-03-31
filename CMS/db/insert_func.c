@@ -47,6 +47,7 @@ void cmd_insert(char *args) {
 
     // check duplicate
     int pos = binary_search(records, &recordCount, student_id);
+    // check if pos is valid index & if ID position matches
     if (pos < recordCount && records[pos].node->id == student_id) {
         printf("[!] Error: Student ID already exists. Insertion cancelled.\n");
         return;

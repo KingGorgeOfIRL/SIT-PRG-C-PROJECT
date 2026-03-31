@@ -8,8 +8,7 @@ void cmd_exit(char *args) {
         printf("[!] Command [exit] does not take in arguments.\n");
         return;
     }
-    printf("[*] Saving database...\n");
-    cmd_saveStudents(""); // auto-save on exit
+
     printf("[*] Exiting...\n\n");
     exit(0);
 }

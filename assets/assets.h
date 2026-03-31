@@ -16,7 +16,7 @@ typedef struct Student{
     float mark;
 }Student;
 
-// array of linked list pointers, point to the first node of every 10 IDs
+// array of list pointers, index
 typedef struct Record{
     Student *node;
 }Record;

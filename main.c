@@ -30,7 +30,7 @@ int main() {
            "\t2. Alden Chia Yu Xiang\n"
            "\t3. Lennon Poh Chin Hng\n"
            "\t4. Ray Tan JunTao\n"
-           "Date: (please insert the date when you submit your milestone report).\n\n"
+           "Date: 31 March 2026\n\n"
     );
 
     char input[MAX_INPUT];
